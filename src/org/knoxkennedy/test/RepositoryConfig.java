@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 
@@ -47,13 +46,7 @@ public class RepositoryConfig
         return htm;
     }
     
-    @Bean
-    @Autowired
-    public HibernateTemplate getHibernateTemplate(SessionFactory sessionFactory)
-    {
-        HibernateTemplate hibernateTemplate = new HibernateTemplate(sessionFactory);
-        return hibernateTemplate;
-    }
+
         
     @Bean
     public LocalSessionFactoryBean getSessionFactory()
